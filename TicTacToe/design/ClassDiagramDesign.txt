@@ -1,0 +1,166 @@
+class Board {
+
+  attributes:
+    
+    private final dimension:int
+    private final boardCells: List<List<Cell>> 
+  
+  methods:
+
+    public Board(dimension: int)
+    public print(): void
+    public initialiseBoard(boardCells: List<List<Cell>>): void
+    public getDimension(): int
+    public getBoardCells(): List<List<Cell>>
+
+}
+
+class Game {
+
+    attributes:
+    
+        private final board: Board
+        private final players: List<Player>
+        private final movesHistory: List<Move>
+        private winner: Player
+        private gameState: GameState  
+
+    methods:
+
+        public Game(GameBuilder: GameBuilder)
+        public printGameBoard(): void
+        public nextMove(): void
+        public getGameRules(): <String>
+        public getBoard(): Board
+	    public getPlayers(): List<Player>
+        public getMoves():List<Move> 
+		public getWinner():Player
+	    public getGameState():GameState
+
+    static class GameBuilder {
+
+        attributes:
+            private board: Board
+            private players: List<Player>
+            private moves: List<Move>
+        
+        methods:
+            private GameBuilder()
+            public static getBuilder(): GameBuilder
+            public board(board: Board): GameBuilder
+            public players(players: List<Player>): GameBuilder
+            public build(): Game
+
+    }
+}
+
+public abstract class Player {
+	
+	attributes:
+	
+		protected name: String
+		protected character: Character
+		protected userName: String
+		public playerType: PlayerType
+	
+	methods:
+	
+		public Player(name: String,character: Character ,userName: String,playerType: PlayerType)
+		abstract makeMove(Board board): Cell
+		public getName(): String
+		public getCharacter(): Character
+		public getUserName(): String	
+	
+}
+
+class HumanPlayer extends Player {
+	
+	attributes:
+	
+		private Scanner scanner; 
+
+	methods:
+	
+		public HumanPlayer(name: String,character: Character,userName: String,playerType: PlayerType)
+		public getPlayerType(): PlayerType
+		makeMove(Board board): Cell
+		
+}
+
+
+class Move{
+
+	attributes:
+	
+    	private cell: Cell
+		private player: Player
+        
+    methods:
+
+        public Move(cell : Cell,player: Player)
+		public getCell(): Cell
+		public getPlayer(): Player
+}
+
+class Cell {
+
+	attributes:
+		private row: Integer
+		private col: Integer;
+		private player: Player
+		private cellState: CellState
+
+	methods:
+	
+		public Cell(row: Integer,col: Integer)
+		public display(): void
+		
+}
+
+class WinningStrategy {
+
+	attributes:
+	
+		rowWiseCharMap: Map<Integer, Map<Character, Integer>>
+		colWiseCharMap: Map<Integer, Map<Character, Integer>>
+		diagonalCharMap: Map<Integer, Map<Character, Integer>>
+
+	methods:
+	
+	public checkWinner(board: Board,lastMove: Move): boolean
+	private checkRow(board: Board,move: Move): boolean
+	private checkColumn(board: Board,move: Move): boolean
+	private checkDiagonal(board: Board,move: Move): boolean
+	private addToRowWiseMap(board: Board,lastMove: Move): void
+	private addToColWiseMap(board: Board,lastMove: Move): void
+	private addTodiagonalMap(board: Board,lastMove: Move): void
+}
+
+class MoveValidation{
+	
+	methods:
+	
+		public static validateMove(board: Board,row: Integer,col: Integer): Boolean
+}
+
+
+enum GameState {
+    IN_PROGRESS,CONCLUDED,DRAW
+}
+
+enum CellState {
+	EMPTY,FILLED;
+}
+
+class GameController {
+	
+	methods:
+	
+		public startGame(dimension: Integer,players: List<Player>): Game
+		public makeMove(game: Game): void
+		public printBoard(game: Game): void
+		public resetBoard(game: Game): void
+		public displayGameRules(game: Game): void
+	
+}
+
