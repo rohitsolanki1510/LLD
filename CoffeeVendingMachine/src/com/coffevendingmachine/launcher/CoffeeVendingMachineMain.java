@@ -6,6 +6,7 @@ import java.util.TreeMap;
 
 import com.coffevendingmachine.enums.CoffeeType;
 import com.coffevendingmachine.enums.Ingredient;
+import com.coffevendingmachine.launcher.CoffeeVendingMachine;
 
 public class CoffeeVendingMachineMain {
 

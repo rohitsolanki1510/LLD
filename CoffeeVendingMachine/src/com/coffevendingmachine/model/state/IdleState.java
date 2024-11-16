@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 import com.coffevendingmachine.enums.Ingredient;
-import com.coffevendingmachine.launcher.CoffeeVendingMachine;
+import com.coffevendingmachine.model.CoffeeVendingMachine;
 
 public class IdleState implements State {
 	CoffeeVendingMachine coffeeVendingMachine;

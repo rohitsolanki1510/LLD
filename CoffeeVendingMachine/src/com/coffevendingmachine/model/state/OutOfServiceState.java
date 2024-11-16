@@ -3,7 +3,7 @@ package com.coffevendingmachine.model.state;
 import java.util.Map;
 
 import com.coffevendingmachine.enums.Ingredient;
-import com.coffevendingmachine.launcher.CoffeeVendingMachine;
+import com.coffevendingmachine.model.CoffeeVendingMachine;
 
 public class OutOfServiceState implements State {
 	CoffeeVendingMachine coffeeVendingMachine;

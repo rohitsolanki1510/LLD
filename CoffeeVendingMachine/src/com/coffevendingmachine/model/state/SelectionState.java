@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import com.coffevendingmachine.enums.CoffeeType;
 import com.coffevendingmachine.enums.Ingredient;
-import com.coffevendingmachine.launcher.CoffeeVendingMachine;
+import com.coffevendingmachine.model.CoffeeVendingMachine;
 import com.coffevendingmachine.model.Coffee;
 import com.coffevendingmachine.model.CoffeeFactory;
 
