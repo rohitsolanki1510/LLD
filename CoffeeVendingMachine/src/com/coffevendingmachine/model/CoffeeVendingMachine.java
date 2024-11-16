@@ -1,4 +1,4 @@
-package com.coffevendingmachine.launcher;
+package com.coffevendingmachine.model;
 
 import java.util.Map;
 import java.util.TreeMap;
