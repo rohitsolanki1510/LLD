@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.tictactoe.enums.GameState;
+import com.tictactoe.strategy.WinningStrategy;
 
 public class Game {
 	private final Board board;

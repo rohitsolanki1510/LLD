@@ -1,9 +1,10 @@
-package com.tictactoe.model;
+package com.tictactoe.strategy;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import com.tictactoe.model.Board;
+import com.tictactoe.model.Move;
+import com.tictactoe.model.Player;
 
 public class WinningStrategy {
 	Map<Integer, Map<Character, Integer>> rowWiseCharMap = new HashMap<>();

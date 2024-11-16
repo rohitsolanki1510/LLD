@@ -1,8 +1,6 @@
 package com.tictactoe.model;
 
 import java.util.Scanner;
-
-import com.tictactoe.enums.CellState;
 import com.tictactoe.enums.PlayerType;
 import com.tictactoe.validation.CellValidation;
 
@@ -28,7 +26,7 @@ public class HumanPlayer extends Player {
         }while(!CellValidation.validateRowCol(board,row,col));
 
         Cell cell = board.getBoardCells().get(row).get(col);
-        cell.setCellState(CellState.FILLED);
+        cell.setCellState(false);
         cell.setPlayer(this);
 
         return cell;

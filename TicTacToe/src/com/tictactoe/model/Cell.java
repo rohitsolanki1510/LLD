@@ -1,21 +1,20 @@
 package com.tictactoe.model;
 
-import com.tictactoe.enums.CellState;
 
 public class Cell {
 	private int row;
 	private int col;
 	private Player player;
-	private CellState cellState;
+	private boolean isCellEmpty;
 
 	public Cell(int row, int col) {
 		this.row = row;
 		this.col = col;
-		this.cellState = CellState.EMPTY;
+		this.isCellEmpty = true;
 	}
 
 	public void display() {
-		if (cellState.equals(CellState.EMPTY)) {
+		if (isCellEmpty) {
 			System.out.print("|_|");
 		} else {
 			System.out.print("|" + player.getCharacter() + "|");
@@ -46,12 +45,12 @@ public class Cell {
 		this.player = player;
 	}
 
-	public CellState getCellState() {
-		return cellState;
+	public Boolean getCellState() {
+		return isCellEmpty;
 	}
 
-	public void setCellState(CellState cellState) {
-		this.cellState = cellState;
+	public void setCellState(Boolean isCellEmpty) {
+		this.isCellEmpty = isCellEmpty;
 	}
 	
 	
